@@ -10,7 +10,8 @@ routine <- S7::new_class(
   properties = list(
     gymnast = S7::class_character,
     d_value = S7::class_double,
-    end_value = S7::class_double
+    end_value = S7::class_double,
+    score_value = S7::class_integer
   )
 )
 
@@ -78,7 +79,11 @@ routine_server <- function(id, score_comparison_value) {
     shiny::reactive(routine(
       input$name,
       as.double(input$d_value),
-      as.double(input$end_value)
+      as.double(input$end_value),
+      as.integer(calculate_score(
+        input$end_value,
+        score_comparison_value()
+      ))
     ))
   })
 }
@@ -92,7 +97,8 @@ event_side_ui <- function(id) {
     routine_ui(ns("d"), FALSE),
     shiny::fluidRow(
       shiny::column(width = 6, "Total: "),
-      shiny::column(width = 6, shiny::textOutput(ns("total")))
+      shiny::column(width = 3, shiny::textOutput(ns("total"))),
+      shiny::column(width = 3, shiny::textOutput(ns("score")))
     ),
   )
 }
@@ -117,6 +123,11 @@ event_side_server <- function(
       Reduce(f = `+`) |>
       shiny::renderText()
 
+    output$score <-
+      l() |>
+      lapply(\(x) x()@score_value) |>
+      Reduce(f = `+`) |>
+      shiny::renderText()
     l
   })
 }
