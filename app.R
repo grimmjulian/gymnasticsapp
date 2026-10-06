@@ -14,6 +14,18 @@ routine <- S7::new_class(
   )
 )
 
+valueInput <- function(inputId, label, value = 0, ...) {
+  shiny::numericInput(
+    inputId = inputId,
+    label = label,
+    value = value,
+    min = 0,
+    max = 20,
+    step = 0.05,
+    ...
+  )
+}
+
 routine_ui <- function(id, show_label = FALSE) {
   ns <- shiny::NS(id)
   foo <- function(label) {
@@ -32,11 +44,11 @@ routine_ui <- function(id, show_label = FALSE) {
       ),
       shiny::column(
         width = 2,
-        shiny::numericInput(label = foo("D-Score"), ns("d_value"), value = 0)
+        valueInput(label = foo("D-Score"), ns("d_value"), value = 0)
       ),
       shiny::column(
         width = 2,
-        shiny::numericInput(label = foo("E-Score"), ns("end_value"), value = 10)
+        valueInput(label = foo("E-Score"), ns("end_value"), value = 10)
       ),
       shiny::column(
         width = 2,
@@ -83,20 +95,20 @@ event_side_ui <- function(id) {
   )
 }
 
-event_side_server <- function(id) {
+event_side_server <- function(id, score_comparison_values = 1:4) {
   shiny::moduleServer(id, function(input, output, session) {
-    a <- shiny::reactive(list(
-      routine_server("a"),
-      routine_server("b"),
-      routine_server("c"),
-      routine_server("d")
-    ))
+    l <- list(
+      routine_server("a", score_comparison_values[1]),
+      routine_server("b", score_comparison_values[2]),
+      routine_server("c", score_comparison_values[3]),
+      routine_server("d", score_comparison_values[4])
+    )
     output$total <- shiny::reactive(
-      a() |>
+      l |>
         lapply(\(x) x()@end_value) |>
         Reduce(f = `+`)
     )
-    a
+    l
   })
 }
 
