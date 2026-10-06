@@ -44,11 +44,11 @@ routine_ui <- function(id, show_label = FALSE) {
       ),
       shiny::column(
         width = 2,
-        valueInput(label = foo("D-Score"), ns("d_value"), value = 0)
+        valueInput(label = foo("D-Wert"), ns("d_value"), value = 0)
       ),
       shiny::column(
         width = 2,
-        valueInput(label = foo("E-Score"), ns("end_value"), value = 10)
+        valueInput(label = foo("Endwert"), ns("end_value"), value = 10)
       ),
       shiny::column(
         width = 2,
