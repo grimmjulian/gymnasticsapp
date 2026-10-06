@@ -15,7 +15,8 @@ routine <- S7::new_class(
   )
 )
 
-valueInput <- function(inputId, label, value = 0, ...) {
+# fmt: skip
+valueInput <- function(inputId, label, value = 0, ...) { # nolint: object_name_linter, line_length_linter.
   shiny::numericInput(
     inputId = inputId,
     label = label,
