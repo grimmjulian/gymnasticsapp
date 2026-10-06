@@ -37,7 +37,6 @@ routine_ui <- function(id, show_label = FALSE) {
   }
 
   shiny::tagList(
-    shiny::verbatimTextOutput(ns("test")),
     shiny::fluidRow(
       shiny::column(
         width = 5,
@@ -76,7 +75,6 @@ routine_server <- function(id, score_comparison_value) {
         score_comparison_value()
       ))
     })
-    output$test <- shiny::renderText(score_comparison_value())
     shiny::reactive(routine(
       input$name,
       as.double(input$d_value),
@@ -96,7 +94,6 @@ event_side_ui <- function(id) {
       shiny::column(width = 6, "Total: "),
       shiny::column(width = 6, shiny::textOutput(ns("total")))
     ),
-    shiny::verbatimTextOutput(ns("scv"))
   )
 }
 
@@ -120,7 +117,6 @@ event_side_server <- function(
       Reduce(f = `+`) |>
       shiny::renderText()
 
-    output$scv <- shiny::renderText(score_comparison_values())
     l
   })
 }
@@ -132,20 +128,24 @@ event_ui <- function(id) {
       shiny::column(width = 6, "Heim", event_side_ui(ns("home"))),
       shiny::column(width = 6, "Gast", event_side_ui(ns("guest")))
     ),
-    shiny::verbatimTextOutput(ns("home_scv"))
   )
 }
 
 event_server <- function(id) {
   shiny::moduleServer(id, function(input, output, session) {
     h <- event_side_server("home")
-    event_side_server("guest")
+    g <- event_side_server("guest")
     shiny::observeEvent(h, {
       hh <- h() |>
         sapply(\(x) x()@end_value) |>
         shiny::reactive()
-      output$home_scv <- shiny::renderText(hh())
       event_side_server("guest", hh)
+    })
+    shiny::observeEvent(h, {
+      gg <- g() |>
+        sapply(\(x) x()@end_value) |>
+        shiny::reactive()
+      event_side_server("home", gg)
     })
   })
 }
