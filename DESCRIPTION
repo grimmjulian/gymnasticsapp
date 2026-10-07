@@ -10,7 +10,7 @@ License: GPL (>= 2)
 Suggests: tinytest
 RoxygenNote: 7.3.3
 Collate: 
-    'routine.R'
-    'event.R'
     'score.R'
+    'routine.R'
     'pairing.R'
+    'event.R'

@@ -1,4 +1,4 @@
-#' @include routine.R
+#' @include pairing.R
 
 event <- S7::new_class(
   name = "event",
