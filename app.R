@@ -5,15 +5,6 @@ calculate_score <- function(x, y) {
     as.character() |>
     as.numeric()
 }
-routine <- S7::new_class(
-  name = "routine",
-  properties = list(
-    gymnast = S7::class_character,
-    d_value = S7::class_double,
-    end_value = S7::class_double,
-    score_value = S7::class_integer
-  )
-)
 
 # fmt: skip
 valueInput <- function(inputId, label, value = 0, ...) { # nolint: object_name_linter, line_length_linter.

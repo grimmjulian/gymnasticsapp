@@ -1,0 +1,16 @@
+Package: roland.shiny
+Type: Package
+Title: Concise Summary of What the Package Does
+Version: 1.0
+Date: 2026-10-07
+Authors@R: person("Your", "Name", role = c("aut", "cre"), email =
+        "your@email.com")
+Description: More about what it does (maybe more than one line).
+License: GPL (>= 2)
+Suggests: tinytest
+RoxygenNote: 7.3.3
+Collate: 
+    'routine.R'
+    'event.R'
+    'score.R'
+    'pairing.R'

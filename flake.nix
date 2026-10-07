@@ -15,6 +15,8 @@
           shiny
           languageserver
           S7
+          tinytest
+          roxygen2
         ];
 
       };
