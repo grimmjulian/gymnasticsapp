@@ -1,5 +1,5 @@
 run:
-    Rscript -e "options(shiny.autoload.r = TRUE); shiny::runApp(display.mode = 'normal')"
+    Rscript -e "options(shiny.autoload.r = FALSE, shiny.autoreload = TRUE); pkgload::load_all(path = '.'); shiny::runApp()"
 
 doc: 
     Rscript -e "roxygen2::roxygenize()"

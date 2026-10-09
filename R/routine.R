@@ -23,6 +23,7 @@ value_input <- function(
     ...
   )
 }
+
 routine_input_ui <- function(id, show_label = FALSE) {
   ns <- shiny::NS(id)
   foo <- function(label) {
@@ -32,23 +33,29 @@ routine_input_ui <- function(id, show_label = FALSE) {
       NULL
     }
   }
+  dr <- routine()
+  widths <- c(6, 3, 3)
 
-  shiny::tagList(
-    shiny::fluidRow(
-      shiny::column(
-        width = 5,
-        shiny::textInput(label = foo("Name"), ns("name"), value = "Kein Turner")
-      ),
-      shiny::column(
-        width = 2,
-        value_input(label = foo("D-Wert"), ns("d_value"), value = 0)
-      ),
-      shiny::column(
-        width = 2,
-        value_input(label = foo("Endwert"), ns("end_value"), value = 10)
-      )
+  list(
+    shiny::textInput(
+      label = foo("Name"),
+      ns("name"),
+      value = dr@gymnast
+    ),
+    value_input(
+      label = foo("D-Wert"),
+      ns("d_value"),
+      value = dr@d_value
+    ),
+    value_input(
+      label = foo("Endwert"),
+      ns("end_value"),
+      value = dr@end_value
     )
-  )
+  ) |>
+  Map(f = shiny::column, width = widths) |>
+  shiny::fluidRow() |>
+  shiny::tagList()
 }
 
 routine_input_server <- function(id) {
