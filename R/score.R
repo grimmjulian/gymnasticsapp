@@ -8,7 +8,12 @@ calculate_score <- function(x) {
     y <- -x
     i <- 2
   }
-  s[[i]] <- cut(y, breaks = breaks, labels = labels) |>
+  s[[i]] <- cut(
+    y,
+    breaks = breaks,
+    labels = labels,
+    right = FALSE
+  ) |>
     as.character() |>
     as.numeric()
   s
