@@ -24,7 +24,7 @@ value_input <- function(
   )
 }
 
-routine_input_ui <- function(id, show_label = FALSE) {
+routine_ui <- function(id, show_label = FALSE) {
   ns <- shiny::NS(id)
   foo <- function(label) {
     if (isTRUE(show_label)) {
@@ -53,12 +53,12 @@ routine_input_ui <- function(id, show_label = FALSE) {
       value = dr@end_value
     )
   ) |>
-  Map(f = shiny::column, width = widths) |>
-  shiny::fluidRow() |>
-  shiny::tagList()
+    Map(f = shiny::column, width = widths) |>
+    shiny::fluidRow() |>
+    shiny::tagList()
 }
 
-routine_input_server <- function(id) {
+routine_server <- function(id) {
   shiny::moduleServer(id, function(input, output, session) {
     shiny::reactive(routine(
       input$name,

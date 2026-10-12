@@ -6,3 +6,9 @@ doc:
 
 test: doc
     Rscript -e "pkgload::load_all(path = '.'); tinytest::test_all()"
+
+build: doc
+    R CMD build .
+
+check: build
+    R CMD check *_*.tar.gz
