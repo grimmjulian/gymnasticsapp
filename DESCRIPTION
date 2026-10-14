@@ -7,6 +7,8 @@ Authors@R: person("Your", "Name", role = c("aut", "cre"), email =
         "your@email.com")
 Description: More about what it does (maybe more than one line).
 License: GPL (>= 2)
+Depends:
+    R (>= 4.2.0)
 Imports: S7, shiny
 Suggests: 
     testthat (>= 3.0.0),

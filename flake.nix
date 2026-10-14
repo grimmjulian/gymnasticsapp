@@ -19,14 +19,19 @@
           roxygen2
           watcher
         ];
-
       };
+      texEnv = (
+        pkgs.texlive.combine {
+          inherit (pkgs.texlive) scheme-small inconsolata;
+        }
+      );
     in
     {
 
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
           rEnv
+          texEnv
           air-formatter
           jarl
           nixfmt
