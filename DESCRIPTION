@@ -8,10 +8,12 @@ Authors@R: person("Your", "Name", role = c("aut", "cre"), email =
 Description: More about what it does (maybe more than one line).
 License: GPL (>= 2)
 Imports: S7, shiny
-Suggests: tinytest
+Suggests: 
+    testthat (>= 3.0.0),
 RoxygenNote: 7.3.3
 Collate: 
     'score.R'
     'routine.R'
     'pairing.R'
     'event.R'
+Config/testthat/edition: 3

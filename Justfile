@@ -4,8 +4,8 @@ run:
 doc: 
     Rscript -e "roxygen2::roxygenize()"
 
-test: doc
-    Rscript -e "pkgload::load_all(path = '.'); tinytest::test_all()"
+test:
+    Rscript -e "testthat::test_local('.')"
 
 build: doc
     R CMD build .

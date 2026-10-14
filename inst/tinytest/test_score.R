@@ -1,8 +1,0 @@
-expect_equal(calculate_score(0.15)[[1]], 1)
-expect_equal(calculate_score(0.15)[[2]], 0)
-expect_equal(calculate_score(0.25)[[1]], 1)
-expect_equal(calculate_score(0.25)[[2]], 0)
-expect_equal(calculate_score(-0.3)[[1]], 0)
-expect_equal(calculate_score(-0.3)[[2]], 2)
-expect_equal(calculate_score(-0.5)[[1]], 0)
-expect_equal(calculate_score(-0.5)[[2]], 2)
