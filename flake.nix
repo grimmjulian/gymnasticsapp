@@ -38,5 +38,16 @@
           just
         ];
       };
+      formatter.${system} = pkgs.writeShellApplication {
+        name = "custom-formatter";
+        runtimeInputs = [
+          pkgs.air-formatter
+          pkgs.nixfmt
+        ];
+        text = ''
+          nixfmt flake.nix
+          air format .
+        '';
+      };
     };
 }

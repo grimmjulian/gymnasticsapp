@@ -1,4 +1,3 @@
-
 ui <- shiny::fluidPage(
   routine_ui("c", show_label = TRUE),
   pairing_ui("p", show_label = TRUE)

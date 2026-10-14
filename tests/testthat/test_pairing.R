@@ -10,4 +10,3 @@ test_that("score property works", {
   p <- pairing(guest = r)
   expect_equal(p@score, c(0, 3))
 })
-
