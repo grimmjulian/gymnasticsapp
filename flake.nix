@@ -27,6 +27,29 @@
       );
     in
     {
+      packages.${system}.default = pkgs.rPackages.buildRPackage {
+        name = "mypkgs";
+        version = "0.1.0";
+        src = ./.;
+
+        propagatedBuildInputs = with pkgs.rPackages; [
+          S7
+          shiny
+
+          texEnv
+        ];
+        doCheck = true;
+        checkInputs = with pkgs.rPackages; [
+          testthat
+        ];
+        checkPhase = ''
+          runHook preCheck
+          R CMD build .
+          R CMD check *_*.tar.gz
+          runHook postCheck
+        '';
+
+      };
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
           rEnv
