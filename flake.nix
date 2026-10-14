@@ -27,7 +27,6 @@
       );
     in
     {
-
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
           rEnv
@@ -38,15 +37,6 @@
           nil
           just
         ];
-      };
-      apps.${system}.default = {
-        type = "app";
-        program = toString (
-          pkgs.writeShellScript "run-shiny-app" ''
-            export PATH="${rEnv}/bin:$PATH"
-            Rscript -e "options(browser = 'firefox');shiny::runApp('${self}/app.R', port = 3838, host = '0.0.0.0')"
-          ''
-        );
       };
     };
 }
