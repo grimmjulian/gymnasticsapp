@@ -1,3 +1,11 @@
+test_that("defaults for event works", {
+  e <- event()
+  expect_length(e@home, 4)
+  expect_length(e@guest, 4)
+  expect_true(all(sapply(e@home, inherits, what = routine)))
+  expect_true(all(sapply(e@guest, inherits, what = routine)))
+})
+
 test_that("pairings property works", {
   e <- event()
   r <- routine(gymnast = "Julian", end_value = 4)

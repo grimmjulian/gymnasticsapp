@@ -5,11 +5,11 @@ event <- S7::new_class(
   properties = list(
     home = S7::new_property(
       S7::class_list,
-      default = replicate(4, routine())
+      default = quote(replicate(4, routine()))
     ),
     guest = S7::new_property(
       S7::class_list,
-      default = replicate(4, routine())
+      default = quote(replicate(4, routine()))
     ),
     pairings = S7::new_property(
       getter = function(self) {
