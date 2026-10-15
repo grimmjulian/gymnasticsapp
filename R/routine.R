@@ -1,9 +1,29 @@
+length_1_validator <- function(value) {
+  if (!length(value) == 1) {
+    "Value needs to be length 1"
+  } else {
+    NULL
+  }
+}
+
 routine <- S7::new_class(
   name = "routine",
   properties = list(
-    gymnast = S7::class_character,
-    d_value = S7::new_property(S7::class_numeric, default = 0),
-    end_value = S7::new_property(S7::class_numeric, default = 0)
+    gymnast = S7::new_property(
+      S7::class_character,
+      default = "Kein Turner",
+      validator = length_1_validator
+    ),
+    d_value = S7::new_property(
+      S7::class_numeric,
+      default = 0,
+      validator = length_1_validator
+    ),
+    end_value = S7::new_property(
+      S7::class_numeric,
+      default = 0,
+      validator = length_1_validator
+    )
   )
 )
 

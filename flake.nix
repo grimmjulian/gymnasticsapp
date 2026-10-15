@@ -35,7 +35,7 @@
     in
     {
       packages.${system}.default = pkgs.rPackages.buildRPackage {
-        name = "mypkgs";
+        name = "roland.shiny";
         version = "0.1.0";
         src = ./.;
 
