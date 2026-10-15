@@ -25,6 +25,13 @@
           inherit (pkgs.texlive) scheme-small inconsolata;
         }
       );
+      testScript = pkgs.writeShellApplication {
+          name = "r-tests";
+          runtimeInputs = [ rEnv ];
+          text = ''
+            Rscript -e "testthat::test_local()"
+          '';
+        };
     in
     {
       packages.${system}.default = pkgs.rPackages.buildRPackage {
@@ -48,7 +55,10 @@
           R CMD check *_*.tar.gz
           runHook postCheck
         '';
-
+      };
+      apps.${system}.test = {
+        type = "app";
+        program = "${testScript}/bin/r-tests";
       };
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [

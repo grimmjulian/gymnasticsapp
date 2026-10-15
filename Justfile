@@ -5,10 +5,10 @@ doc:
     Rscript -e "roxygen2::roxygenize()"
 
 test:
-    Rscript -e "testthat::test_local('.')"
+    nix run .#test
 
 build: doc
-    R CMD build .
+    echo "funny just build"
 
 check: build
-    R CMD check *_*.tar.gz
+    nix build
