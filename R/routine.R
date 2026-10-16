@@ -87,3 +87,12 @@ routine_server <- function(id) {
     ))
   })
 }
+
+S7::method(as.data.frame, routine) <- function(x, ...) {
+  data.frame(
+    name = x@gymnast,
+    d_value = x@d_value,
+    end_value = x@end_value,
+    ...
+  )
+}

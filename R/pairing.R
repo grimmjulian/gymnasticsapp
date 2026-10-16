@@ -71,3 +71,13 @@ pairing_server <- function(id) {
     p
   })
 }
+
+S7::method(as.data.frame, pairing) <- function(x, ...) {
+  r1 <- as.data.frame(x@home)
+  colnames(r1) <- paste0("home_", colnames(r1))
+  r2 <- as.data.frame(x@guest)
+  colnames(r2) <- paste0("guest_", colnames(r2))
+  s1 <- data.frame(home_score = x@score[[1]])
+  s2 <- data.frame(guest_score = x@score[[2]])
+  cbind(r1, s1, r2, s2)
+}

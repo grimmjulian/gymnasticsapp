@@ -1,4 +1,5 @@
 #' @include event.R
+
 event_names <- c(
   "floor",
   "pommel_horse",
@@ -57,7 +58,11 @@ competition_ui <- function(id) {
   lapply(event_names, \(x) {
     event_ui(ns(x), x)
   }) |>
-    shiny::tagList(competition_header_ui(ns("header")), a = _)
+    shiny::tagList(
+      competition_header_ui(ns("header")),
+      a = _,
+      shiny::downloadButton(ns("downloadData"), "Download")
+    )
 }
 
 competition_server <- function(id) {
@@ -74,5 +79,24 @@ competition_server <- function(id) {
       c
     })
     competition_header_server("header", c)
+    output$downloadData <- shiny::downloadHandler(
+      filename = function() {
+        paste("data-", Sys.Date(), ".csv", sep = "")
+      },
+      content = function(file) {
+        as.data.frame(c()) |>
+          write.csv(file)
+      }
+    )
   })
+}
+
+S7::method(as.data.frame, competition) <- function(x, ...) {
+  l <- list()
+  for (i in seq_along(x@events)) {
+    l[[i]] <- as.data.frame(x@events[[i]])
+    l[[i]][["event_order"]] <- i
+    l[[i]][["event"]] <- names(x@events)[[i]]
+  }
+  do.call(what = rbind, args = l)
 }

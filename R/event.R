@@ -94,3 +94,11 @@ event_server <- function(id) {
     e
   })
 }
+
+S7::method(as.data.frame, event) <- function(x, ...) {
+  df <- x@pairings |>
+    lapply(as.data.frame) |>
+    do.call(what = rbind)
+  df[["pairing_order"]] <- seq_len(nrow(df))
+  df
+}
