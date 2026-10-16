@@ -3,12 +3,8 @@
 event <- S7::new_class(
   name = "event",
   properties = list(
-    home = S7::new_property(
-      S7::class_list
-    ),
-    guest = S7::new_property(
-      S7::class_list
-    ),
+    home = S7::class_list,
+    guest = S7::class_list,
     pairings = S7::new_property(
       getter = function(self) {
         mapply(pairing, home = self@home, guest = self@guest)
@@ -24,17 +20,61 @@ event <- S7::new_class(
       getter = function(self) {
         self@pairings |> lapply(\(x) x@score) |> Reduce(f = `+`)
       }
+    ),
+    event_score = S7::new_property(
+      getter = function(self) {
+        s <- self@score
+        if (s[[1]] > s[[2]]) {
+          es <- c(2, 0)
+        } else if (s[[1]] < s[[2]]) {
+          es <- c(0, 2)
+        } else {
+          es <- c(1, 1)
+        }
+      }
     )
   )
 )
 
-event_ui <- function(id) {
+event_result_ui <- function(id) {
+  foo <- function(id, label) {
+    list(shiny::tags$b(label), shiny::verbatimTextOutput(id)) |>
+      lapply(shiny::column, width = 6) |>
+      shiny::fluidRow() |>
+      shiny::tagList()
+  }
+
+  ns <- shiny::NS(id)
+  list(
+    foo(ns("home_es"), "GP"),
+    foo(ns("home_s"), "Score"),
+    foo(ns("guest_es"), "GP"),
+    foo(ns("guest_s"), "Score")
+  ) |>
+    lapply(shiny::column, width = 3) |>
+    shiny::fluidRow() |>
+    shiny::tagList()
+}
+
+event_result_server <- function(id, event) {
+  stopifnot(shiny::is.reactive(event))
+  shiny::moduleServer(id, function(input, output, session) {
+    output$home_es <- shiny::renderText(event()@event_score[[1]])
+    output$guest_es <- shiny::renderText(event()@event_score[[2]])
+    output$home_s <- shiny::renderText(event()@score[[1]])
+    output$guest_s <- shiny::renderText(event()@score[[2]])
+  })
+}
+
+event_ui <- function(id, header = id) {
   ns <- shiny::NS(id)
   shiny::tagList(
+    shiny::tags$h2(header),
     pairing_ui(ns("1"), show_label = TRUE),
     pairing_ui(ns("2")),
     pairing_ui(ns("3")),
-    pairing_ui(ns("4"))
+    pairing_ui(ns("4")),
+    event_result_ui(ns("result"))
   )
 }
 
@@ -46,9 +86,10 @@ event_server <- function(id) {
     p4 <- pairing_server("4")
     e <- shiny::reactive({
       e <- event()
-      e@pairings <- list(p1, p2, p3, p4)
+      e@pairings <- list(p1(), p2(), p3(), p4())
       e
     })
+    event_result_server("result", e)
     e
   })
 }

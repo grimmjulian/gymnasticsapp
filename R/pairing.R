@@ -18,7 +18,7 @@ pairing <- S7::new_class(
 score_ui <- function(id, show_label = FALSE) {
   ns <- shiny::NS(id)
   if (isTRUE(show_label)) {
-    label <- "Score"
+    label <- shiny::tags$b("Score")
   } else {
     label <- NULL
   }
@@ -40,6 +40,7 @@ pairing_ui <- function(id, show_label = FALSE) {
   ns <- shiny::NS(id)
   if (isTRUE(show_label)) {
     header <- c("Heim", "Gast") |>
+      lapply(shiny::tags$h4) |>
       lapply(shiny::column, width = 6) |>
       shiny::fluidRow()
   } else {
