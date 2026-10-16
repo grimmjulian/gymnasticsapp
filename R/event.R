@@ -27,3 +27,28 @@ event <- S7::new_class(
     )
   )
 )
+
+event_ui <- function(id) {
+  ns <- shiny::NS(id)
+  shiny::tagList(
+    pairing_ui(ns("1"), show_label = TRUE),
+    pairing_ui(ns("2")),
+    pairing_ui(ns("3")),
+    pairing_ui(ns("4"))
+  )
+}
+
+event_server <- function(id) {
+  shiny::moduleServer(id, function(input, output, session) {
+    p1 <- pairing_server("1")
+    p2 <- pairing_server("2")
+    p3 <- pairing_server("3")
+    p4 <- pairing_server("4")
+    e <- shiny::reactive({
+      e <- event()
+      e@pairings <- list(p1, p2, p3, p4)
+      e
+    })
+    e
+  })
+}

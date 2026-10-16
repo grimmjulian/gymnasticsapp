@@ -1,9 +1,9 @@
 ui <- shiny::fluidPage(
-  routine_ui("c", show_label = TRUE),
-  pairing_ui("p", show_label = TRUE)
+  pairing_ui("p", show_label = TRUE),
+  event_ui("e")
 )
 server <- function(input, output, session) {
-  routine_server("c")
   pairing_server("p")
+  event_server("e")
 }
 shiny::shinyApp(ui, server)
