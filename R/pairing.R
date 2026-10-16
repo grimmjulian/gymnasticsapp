@@ -24,7 +24,8 @@ score_ui <- function(id, show_label = FALSE) {
   }
   list(
     label,
-    shiny::verbatimTextOutput(ns("score"))
+    shiny::verbatimTextOutput(ns("score")) |>
+      shiny::tags$b()
   ) |>
     shiny::tagList()
 }

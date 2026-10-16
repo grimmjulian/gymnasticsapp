@@ -38,7 +38,8 @@ event <- S7::new_class(
 
 event_result_ui <- function(id) {
   foo <- function(id, label) {
-    list(shiny::tags$b(label), shiny::verbatimTextOutput(id)) |>
+    list(label, shiny::verbatimTextOutput(id)) |>
+      lapply(shiny::tags$b) |>
       lapply(shiny::column, width = 6) |>
       shiny::fluidRow() |>
       shiny::tagList()
