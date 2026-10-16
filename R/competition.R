@@ -30,18 +30,49 @@ competition <- S7::new_class(
   )
 )
 
+competition_header_ui <- function(id) {
+  ns <- shiny::NS(id)
+  shiny::tagList(shiny::tags$div(
+    class = "text-center",
+    shiny::tags$h1(shiny::textOutput(ns("score"))),
+    shiny::tags$h2(shiny::textOutput(ns("event_score")))
+  ))
+}
+
+competition_header_server <- function(id, competition) {
+  stopifnot(shiny::is.reactive(competition))
+  shiny::moduleServer(id, function(input, output, session) {
+    output$score <- shiny::renderText({
+      competition()@score |> paste(collapse = " : ")
+    })
+    output$event_score <- shiny::renderText({
+      competition()@event_score |> paste(collapse = " : ")
+    })
+  })
+}
+
+
 competition_ui <- function(id) {
   ns <- shiny::NS(id)
   lapply(event_names, \(x) {
     event_ui(ns(x), x)
   }) |>
-    shiny::tagList()
+    shiny::tagList(competition_header_ui(ns("header")), a = _)
 }
 
 competition_server <- function(id) {
   shiny::moduleServer(id, function(input, output, session) {
+    rv <- shiny::reactiveValues()
     for (event_name in event_names) {
-      event_server(event_name)
+      rv[[event_name]] <- event_server(event_name)
     }
+    c <- shiny::reactive({
+      c <- competition()
+      for (event_name in event_names) {
+        c@events[[event_name]] <- rv[[event_name]]()
+      }
+      c
+    })
+    competition_header_server("header", c)
   })
 }
