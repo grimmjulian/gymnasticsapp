@@ -22,5 +22,23 @@ test_that("pairings property works", {
   e@guest[[2]] <- routine(end_value = 1)
 
   expect_equal(e@pairings[[1]]@home@gymnast, "Julian")
+})
+
+test_that("score property works", {
+  e <- event()
+  expect_equal(e@score, c(0, 0))
+  r <- routine(gymnast = "Julian", end_value = 4)
+  e@home[[1]] <- r
+  e@guest[[2]] <- routine(end_value = 1)
+
   expect_equal(e@score, c(5, 3))
+})
+
+test_that("event score property works", {
+  e <- event()
+  expect_equal(e@event_score, c(1, 1))
+  r <- routine(gymnast = "Julian", end_value = 4)
+  e@home[[1]] <- r
+  e@guest[[2]] <- routine(end_value = 1)
+  expect_equal(e@event_score, c(2, 0))
 })

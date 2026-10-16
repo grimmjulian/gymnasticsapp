@@ -16,6 +16,16 @@ competition <- S7::new_class(
       default = replicate(6, event()) |>
         stats::setNames(object = _, nm = event_names) |>
         quote()
+    ),
+    score = S7::new_property(
+      getter = function(self) {
+        self@events |> lapply(\(x) x@score) |> Reduce(f = `+`)
+      }
+    ),
+    event_score = S7::new_property(
+      getter = function(self) {
+        self@events |> lapply(\(x) x@event_score) |> Reduce(f = `+`)
+      }
     )
   )
 )
