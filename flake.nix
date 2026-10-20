@@ -28,6 +28,13 @@
           Rscript -e "rsconnect::writeManifest()"
         '';
       };
+      devAppScript = pkgs.writeShellApplication {
+        name = "dev-app";
+        runtimeInputs = [ rEnv ];
+        text = ''
+          Rscript -e "shiny::runApp('app.R')"
+        '';
+      };
       texEnv = (
         pkgs.texlive.combine {
           inherit (pkgs.texlive) scheme-small inconsolata;
@@ -72,6 +79,10 @@
         writeManifest = {
           type = "app";
           program = "${writeManifestScript}/bin/write-manifest";
+        };
+        dev = {
+          type = "app";
+          program = "${devAppScript}/bin/dev-app";
         };
       };
       devShells.${system}.default = pkgs.mkShell {
