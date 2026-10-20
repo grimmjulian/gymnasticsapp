@@ -9,7 +9,7 @@ Description: More about what it does (maybe more than one line).
 License: GPL (>= 2)
 Depends:
     R (>= 4.2.0)
-Imports: S7, shiny
+Imports: S7, shiny, pkgload
 Suggests: 
     testthat (>= 3.0.0),
 RoxygenNote: 7.3.3
