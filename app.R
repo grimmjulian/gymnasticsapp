@@ -1,4 +1,6 @@
 pkgload::load_all(".")
+options(shiny.autoload.r=FALSE)
+
 ui <- shiny::fluidPage(
   competition_ui("c")
 )
