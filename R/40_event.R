@@ -72,6 +72,7 @@ event_bench_team_ui <- function(id) {
   shiny::tagList(
     "Anzahl Bankturner",
     shiny::verbatimTextOutput(ns("number")),
+    shiny::verbatimTextOutput(ns("end_value")),
     shiny::actionButton(ns("add"), "Add to bench")
   )
 }
@@ -88,6 +89,10 @@ event_bench_team_server <- function(id, event) {
     })
 
     output$number <- shiny::renderText(length(S7::prop(e_local(), id)) - 4)
+    output$end_value <- shiny::renderText(
+      S7::prop(e_local(), id)[-c(1:4)] |>
+        sapply(S7::prop, name = "end_value")
+    )
   })
 }
 
