@@ -42,3 +42,13 @@ test_that("event score property works", {
   e@guest[[2]] <- routine(end_value = 1)
   expect_equal(e@event_score, c(2, 0))
 })
+
+test_that("pairings only take the first 4 routines for the teams", {
+  e <- event()
+  r <- routine(end_value = 3)
+  e@home[[1]] <- r
+  e@guest[[5]] <- r
+  expect_length(e@pairings, 4)
+  expect_equal(e@pairings[[1]]@home@end_value, 3)
+  expect_equal(e@score, c(5, 0))
+})

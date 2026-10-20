@@ -7,7 +7,7 @@ event <- S7::new_class(
     guest = S7::class_list,
     pairings = S7::new_property(
       getter = function(self) {
-        mapply(pairing, home = self@home, guest = self@guest)
+        mapply(pairing, home = self@home[1:4], guest = self@guest[1:4])
       },
       setter = function(self, value) {
         self@home <- lapply(value, S7::prop, name = "home")
