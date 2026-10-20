@@ -1,0 +1,23 @@
+name: Formatter
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v25
+      - uses: DeterminateSystems/magic-nix-cache-action@v7
+      - run: nix run .#formatter
+      - run: |
+          if ! git diff --quiet; then
+            echo "❌ Code needs formatting. Run: nix run .#formatter"
+            git diff
+            exit 1
+          fi
+          echo "✓ Code is properly formatted"
