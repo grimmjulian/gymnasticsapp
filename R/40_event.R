@@ -10,8 +10,8 @@ event <- S7::new_class(
         mapply(pairing, home = self@home[1:4], guest = self@guest[1:4])
       },
       setter = function(self, value) {
-        self@home <- lapply(value, S7::prop, name = "home")
-        self@guest <- lapply(value, S7::prop, name = "guest")
+        self@home[1:4] <- lapply(value, S7::prop, name = "home")
+        self@guest[1:4] <- lapply(value, S7::prop, name = "guest")
         self
       },
       default = quote(replicate(4, pairing()))
@@ -67,6 +67,53 @@ event_result_server <- function(id, event) {
   })
 }
 
+event_bench_team_ui <- function(id) {
+  ns <- shiny::NS(id)
+  shiny::tagList(
+    "Anzahl Bankturner",
+    shiny::verbatimTextOutput(ns("number")),
+    shiny::actionButton(ns("add"), "Add to bench")
+  )
+}
+
+event_bench_team_server <- function(id, event) {
+  stopifnot(shiny::is.reactive(event))
+  shiny::moduleServer(id, function(input, output, session) {
+    e_local <- shiny::reactiveVal(shiny::isolate(event()))
+
+    shiny::observeEvent(input$add, {
+      e <- shiny::isolate(e_local())
+      S7::prop(e, id) <- append(S7::prop(e, id), routine())
+      e_local(e)
+    })
+
+    output$number <- shiny::renderText(length(S7::prop(e_local(), id)) - 4)
+  })
+}
+
+event_bench_ui <- function(id) {
+  ns <- shiny::NS(id)
+  shiny::tagList(
+    shiny::fluidRow(
+      shiny::column(
+        width = 6,
+        event_bench_team_ui(ns("home"))
+      ),
+      shiny::column(
+        width = 6,
+        event_bench_team_ui(ns("guest"))
+      )
+    )
+  )
+}
+
+event_bench_server <- function(id, event) {
+  shiny::moduleServer(id, function(input, output, session) {
+    event_bench_team_server("home", event)
+    event_bench_team_server("guest", event)
+  })
+}
+
 event_ui <- function(id, header = id) {
   ns <- shiny::NS(id)
   shiny::tagList(
@@ -75,7 +122,8 @@ event_ui <- function(id, header = id) {
     pairing_ui(ns("2")),
     pairing_ui(ns("3")),
     pairing_ui(ns("4")),
-    event_result_ui(ns("result"))
+    event_result_ui(ns("result")),
+    event_bench_ui(ns("bench"))
   )
 }
 
@@ -91,6 +139,7 @@ event_server <- function(id) {
       e
     })
     event_result_server("result", e)
+    event_bench_server("bench", e)
     e
   })
 }

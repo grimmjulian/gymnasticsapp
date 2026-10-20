@@ -52,3 +52,15 @@ test_that("pairings only take the first 4 routines for the teams", {
   expect_equal(e@pairings[[1]]@home@end_value, 3)
   expect_equal(e@score, c(5, 0))
 })
+
+test_that("setting pairings only sets first 4 events", {
+  e <- event()
+  r <- routine(end_value = 3)
+  e@home[[1]] <- r
+  e@guest[[5]] <- r
+  p <- pairing(routine(), routine())
+  e@pairings[[1]] <- p
+  expect_equal(e@home[[1]]@end_value, 0)
+  expect_length(e@home, 4)
+  expect_length(e@guest, 5)
+})
