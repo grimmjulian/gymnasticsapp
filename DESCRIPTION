@@ -15,9 +15,9 @@ Suggests:
     testthat (>= 3.0.0),
 RoxygenNote: 7.3.3
 Collate:
-    'score.R'
-    'routine.R'
-    'pairing.R'
-    'event.R'
-    'competition.R'
+    '10_score.R'
+    '20_routine.R'
+    '30_pairing.R'
+    '40_event.R'
+    '50_competition.R'
 Config/testthat/edition: 3

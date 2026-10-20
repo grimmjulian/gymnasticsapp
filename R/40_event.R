@@ -1,4 +1,4 @@
-#' @include pairing.R
+#' @include 30_pairing.R
 
 event <- S7::new_class(
   name = "event",

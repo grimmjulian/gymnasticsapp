@@ -1302,16 +1302,16 @@
       "checksum": "db8ca27021c7adc70e096dfda6d243d0"
     },
     ".Rbuildignore": {
-      "checksum": "567eb56daa5d83b187e798f533ed2fda"
+      "checksum": "aa03b6e6446931c396897904a3a22057"
     },
     "air.toml": {
       "checksum": "eb1e940d1c5b60cf2508119f1ce468bd"
     },
     "app.R": {
-      "checksum": "f3f500813a3e52e54a345eb4e45b4144"
+      "checksum": "4bd4da28daace9829c9a0cee700385c4"
     },
     "DESCRIPTION": {
-      "checksum": "047e65326282f587c5e90a35664ea9aa"
+      "checksum": "57165e3d85bb2b725abc893de16a7a44"
     },
     "flake.lock": {
       "checksum": "a9cbb47f15235ce6b5ae9e2eedf38d4e"
@@ -1325,23 +1325,23 @@
     "NAMESPACE": {
       "checksum": "48574c4173185cffcfa7872123315029"
     },
-    "R/competition.R": {
-      "checksum": "8e33b3b164a97af8d12ad2eceeab8590"
-    },
-    "R/event.R": {
-      "checksum": "9f9585622b80cbf812e85f78dad5e0d1"
-    },
-    "R/pairing.R": {
-      "checksum": "9af49dd7e61a3f2b6807d873f31041a2"
-    },
-    "R/routine.R": {
-      "checksum": "8b12beb00ed9db2414c8501aef48bf80"
-    },
-    "R/score.R": {
+    "R/10_score.R": {
       "checksum": "4198cfca8e012b6c8c4d4c6fb768dcb6"
     },
+    "R/20_routine.R": {
+      "checksum": "8b12beb00ed9db2414c8501aef48bf80"
+    },
+    "R/30_pairing.R": {
+      "checksum": "9919965c046ab5e54b70c0e8530d1ed4"
+    },
+    "R/40_event.R": {
+      "checksum": "8ab9fb99dac1dceb0314b656983bcdec"
+    },
+    "R/50_competition.R": {
+      "checksum": "6a6e174a3092aff0e0ba3d4391ee069f"
+    },
     "roland.shiny_1.0.tar.gz": {
-      "checksum": "789fea9addf11cb1c867f66fb66ea78d"
+      "checksum": "2fc381d2204ef150ff5e81671586d701"
     },
     "roland.shiny.Rcheck/00_pkg_src/roland.shiny/air.toml": {
       "checksum": "eb1e940d1c5b60cf2508119f1ce468bd"
@@ -1350,7 +1350,7 @@
       "checksum": "f3f500813a3e52e54a345eb4e45b4144"
     },
     "roland.shiny.Rcheck/00_pkg_src/roland.shiny/DESCRIPTION": {
-      "checksum": "7dbcabfae2f54b53ba44224303fe3762"
+      "checksum": "eaa7beccc61eb307126f9766e9aed6aa"
     },
     "roland.shiny.Rcheck/00_pkg_src/roland.shiny/flake.lock": {
       "checksum": "a9cbb47f15235ce6b5ae9e2eedf38d4e"
@@ -1362,10 +1362,10 @@
       "checksum": "4b415bf7beafe583359b097ec4e01b69"
     },
     "roland.shiny.Rcheck/00_pkg_src/roland.shiny/NAMESPACE": {
-      "checksum": "dc21c19f0d6968ee25d441b2cf46017d"
+      "checksum": "48574c4173185cffcfa7872123315029"
     },
     "roland.shiny.Rcheck/00_pkg_src/roland.shiny/R/competition.R": {
-      "checksum": "afe880b81e86b9a804983599a0e2590a"
+      "checksum": "8e33b3b164a97af8d12ad2eceeab8590"
     },
     "roland.shiny.Rcheck/00_pkg_src/roland.shiny/R/event.R": {
       "checksum": "9f9585622b80cbf812e85f78dad5e0d1"
@@ -1398,22 +1398,22 @@
       "checksum": "0e8933c588eaaf0af77ff54d26fd51ee"
     },
     "roland.shiny.Rcheck/00check.log": {
-      "checksum": "af521dc441ef47ed5c59763503e2a9c5"
+      "checksum": "2814797d8f4d0dfc906ff40b57933c02"
     },
     "roland.shiny.Rcheck/00install.out": {
       "checksum": "3e72bf191227d324dd64ad68ed1ee55c"
     },
     "roland.shiny.Rcheck/Rdlatex.log": {
-      "checksum": "e073d0116586a1df35e55299a85b9175"
+      "checksum": "61834d8b19fd64e4463826a86c05cad9"
     },
     "roland.shiny.Rcheck/roland.shiny-manual.log": {
-      "checksum": "8c60a60e55041def0421470025744bd9"
+      "checksum": "077e47904020e7c7e0d2d4b49f288b5a"
     },
     "roland.shiny.Rcheck/roland.shiny-manual.pdf": {
       "checksum": "0e6eef7c66a9c1dc3e3a8eb4fc9ec4ac"
     },
     "roland.shiny.Rcheck/roland.shiny/DESCRIPTION": {
-      "checksum": "03767694a5d708c3644ec560144f4dd3"
+      "checksum": "7d1fa21f7f36926c6bc245c16644cfd5"
     },
     "roland.shiny.Rcheck/roland.shiny/help/aliases.rds": {
       "checksum": "e6a392406508b9a91a0150a40a65186e"
@@ -1446,25 +1446,25 @@
       "checksum": "c898a4c10c43ba0417e921bfbc525343"
     },
     "roland.shiny.Rcheck/roland.shiny/Meta/nsInfo.rds": {
-      "checksum": "7d07f4dcb92e109d7cdee308e5a67d2c"
+      "checksum": "435bb6cc88e142e61f1488acd4e6474d"
     },
     "roland.shiny.Rcheck/roland.shiny/Meta/package.rds": {
-      "checksum": "c08a6938cc25526950e5d1c21add2386"
+      "checksum": "a8328ceb6cd992cb726d5188400868d8"
     },
     "roland.shiny.Rcheck/roland.shiny/Meta/Rd.rds": {
       "checksum": "8a46ad65f6012396f9ef8a6bff1006d7"
     },
     "roland.shiny.Rcheck/roland.shiny/NAMESPACE": {
-      "checksum": "dc21c19f0d6968ee25d441b2cf46017d"
+      "checksum": "48574c4173185cffcfa7872123315029"
     },
     "roland.shiny.Rcheck/roland.shiny/R/roland.shiny": {
       "checksum": "d6c68f1fe41ced6e98a766a3757313da"
     },
     "roland.shiny.Rcheck/roland.shiny/R/roland.shiny.rdb": {
-      "checksum": "5d14b1e9facaf23f9f7134cd28f1a549"
+      "checksum": "f5708745045d49c4dc918d186db2d139"
     },
     "roland.shiny.Rcheck/roland.shiny/R/roland.shiny.rdx": {
-      "checksum": "027202fd34aa764eac37aba9d1caff20"
+      "checksum": "0c97cfe7a8c9ba4469c0050976ab1634"
     },
     "roland.shiny.Rcheck/tests/startup.Rs": {
       "checksum": "14e3c5b3d49f164cf0bc8dcd3cf2fd78"
@@ -1473,7 +1473,7 @@
       "checksum": "a6eb54f914d006131fb8f452c04c30b9"
     },
     "roland.shiny.Rcheck/tests/testthat.Rout": {
-      "checksum": "58c5e66c00035d33f1abb16c5e4e9690"
+      "checksum": "b085d89443b892c475f21cb4fc577069"
     },
     "roland.shiny.Rcheck/tests/testthat/test_competition.R": {
       "checksum": "a40f8e52277ef9e86caaa6a8739c17ed"

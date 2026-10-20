@@ -1,5 +1,5 @@
-#' @include routine.R
-#' @include score.R
+#' @include 20_routine.R
+#' @include 10_score.R
 
 pairing <- S7::new_class(
   name = "pairing",
