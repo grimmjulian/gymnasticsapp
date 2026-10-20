@@ -79,11 +79,12 @@ routine_ui <- function(id, show_label = FALSE) {
 }
 
 routine_server <- function(id) {
+  r <- routine()
   shiny::moduleServer(id, function(input, output, session) {
     shiny::reactive(routine(
-      input$name,
-      as.double(input$d_value),
-      as.double(input$end_value)
+      input$name %||% r@gymnast,
+      as.double(input$d_value %||% r@d_value),
+      as.double(input$end_value %||% r@end_value)
     ))
   })
 }
