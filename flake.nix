@@ -18,7 +18,15 @@
           testthat
           roxygen2
           watcher
+          rsconnect
         ];
+      };
+      writeManifestScript = pkgs.writeShellApplication {
+        name = "write-manifest";
+        runtimeInputs = [ rEnv ];
+        text = ''
+          Rscript -e "rsconnect::writeManifest()"
+        '';
       };
       texEnv = (
         pkgs.texlive.combine {
@@ -56,9 +64,15 @@
           runHook postCheck
         '';
       };
-      apps.${system}.test = {
-        type = "app";
-        program = "${testScript}/bin/r-tests";
+      apps.${system} = {
+        test = {
+          type = "app";
+          program = "${testScript}/bin/r-tests";
+        };
+        writeManifest = {
+          type = "app";
+          program = "${writeManifestScript}/bin/write-manifest";
+        };
       };
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
