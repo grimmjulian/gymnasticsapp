@@ -86,7 +86,6 @@
           jarl
           nixfmt
           nil
-          just
         ];
       };
       formatter.${system} = pkgs.writeShellApplication {
