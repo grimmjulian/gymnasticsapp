@@ -65,6 +65,7 @@ competition_ui <- function(id) {
     )
 }
 
+#' @importFrom utils write.csv
 competition_server <- function(id) {
   shiny::moduleServer(id, function(input, output, session) {
     rv <- shiny::reactiveValues()

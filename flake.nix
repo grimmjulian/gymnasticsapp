@@ -21,10 +21,13 @@
           rsconnect
         ];
       };
-      writeManifestScript = pkgs.writeShellApplication {
-        name = "write-manifest";
-        runtimeInputs = [ rEnv ];
+      document = pkgs.writeShellApplication {
+        name = "document";
+        runtimeInputs = [
+          rEnv
+        ];
         text = ''
+          Rscript -e "roxygen2::roxygenize()"
           Rscript -e "rsconnect::writeManifest()"
         '';
       };
@@ -47,42 +50,32 @@
           Rscript -e "testthat::test_local()"
         '';
       };
-    in
-    {
-      packages.${system}.default = pkgs.rPackages.buildRPackage {
-        name = "roland.shiny";
-        version = "0.1.0";
-        src = ./.;
-
-        propagatedBuildInputs = with pkgs.rPackages; [
-          S7
-          shiny
-
-          texEnv
-        ];
-        doCheck = true;
-        checkInputs = with pkgs.rPackages; [
-          testthat
-        ];
-        checkPhase = ''
-          runHook preCheck
+      checkScript = pkgs.writeShellApplication {
+        name = "r-check";
+        runtimeInputs = [ rEnv ];
+        text = ''
           R CMD build .
-          R CMD check *_*.tar.gz
-          runHook postCheck
+          R CMD check ./*_*.tar.gz
         '';
       };
+    in
+    {
       apps.${system} = {
         test = {
           type = "app";
           program = "${testScript}/bin/r-tests";
         };
-        writeManifest = {
+        document = {
           type = "app";
-          program = "${writeManifestScript}/bin/write-manifest";
+          program = "${document}/bin/document";
         };
         dev = {
           type = "app";
           program = "${devAppScript}/bin/dev-app";
+        };
+        check = {
+          type = "app";
+          program = "${checkScript}/bin/r-check";
         };
       };
       devShells.${system}.default = pkgs.mkShell {

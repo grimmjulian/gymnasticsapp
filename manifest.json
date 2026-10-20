@@ -1298,29 +1298,35 @@
     "..Rcheck/00check.log": {
       "checksum": "76c41f2d328752c791f01839cb2c6f00"
     },
+    ".github/workflows/main.yml": {
+      "checksum": "db8ca27021c7adc70e096dfda6d243d0"
+    },
     ".Rbuildignore": {
-      "checksum": "aa03b6e6446931c396897904a3a22057"
+      "checksum": "567eb56daa5d83b187e798f533ed2fda"
+    },
+    "air.toml": {
+      "checksum": "eb1e940d1c5b60cf2508119f1ce468bd"
     },
     "app.R": {
-      "checksum": "f2bc5412275369f007fc1c80bff46972"
+      "checksum": "f3f500813a3e52e54a345eb4e45b4144"
     },
     "DESCRIPTION": {
-      "checksum": "b5ee7a400613850b506ec9295bacb016"
+      "checksum": "047e65326282f587c5e90a35664ea9aa"
     },
     "flake.lock": {
       "checksum": "a9cbb47f15235ce6b5ae9e2eedf38d4e"
     },
     "flake.nix": {
-      "checksum": "54283400516583d2814823859f60be25"
+      "checksum": "4f00b9be258fb2b005726418c8686707"
     },
     "Justfile": {
       "checksum": "4b415bf7beafe583359b097ec4e01b69"
     },
     "NAMESPACE": {
-      "checksum": "dc21c19f0d6968ee25d441b2cf46017d"
+      "checksum": "48574c4173185cffcfa7872123315029"
     },
     "R/competition.R": {
-      "checksum": "afe880b81e86b9a804983599a0e2590a"
+      "checksum": "8e33b3b164a97af8d12ad2eceeab8590"
     },
     "R/event.R": {
       "checksum": "9f9585622b80cbf812e85f78dad5e0d1"
@@ -1334,71 +1340,155 @@
     "R/score.R": {
       "checksum": "4198cfca8e012b6c8c4d4c6fb768dcb6"
     },
-    "result/library/roland.shiny/DESCRIPTION": {
-      "checksum": "f137a80f9459ae39ee29734e1f21b2a6"
+    "roland.shiny_1.0.tar.gz": {
+      "checksum": "789fea9addf11cb1c867f66fb66ea78d"
     },
-    "result/library/roland.shiny/help/aliases.rds": {
-      "checksum": "79ec8e1e15b7539694976d2b344e0864"
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/air.toml": {
+      "checksum": "eb1e940d1c5b60cf2508119f1ce468bd"
     },
-    "result/library/roland.shiny/help/AnIndex": {
-      "checksum": "06034ea66688b86b21bb26d71cea8aa3"
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/app.R": {
+      "checksum": "f3f500813a3e52e54a345eb4e45b4144"
     },
-    "result/library/roland.shiny/help/paths.rds": {
-      "checksum": "2c11fdd7ab0216d8f4cbd2e555bc5793"
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/DESCRIPTION": {
+      "checksum": "7dbcabfae2f54b53ba44224303fe3762"
     },
-    "result/library/roland.shiny/help/roland.shiny.rdb": {
-      "checksum": "f51d56adff8d44e538cf10d55924930d"
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/flake.lock": {
+      "checksum": "a9cbb47f15235ce6b5ae9e2eedf38d4e"
     },
-    "result/library/roland.shiny/help/roland.shiny.rdx": {
-      "checksum": "e1625d149f1aaf37a594349d54859adf"
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/flake.nix": {
+      "checksum": "4f00b9be258fb2b005726418c8686707"
     },
-    "result/library/roland.shiny/html/00Index.html": {
-      "checksum": "dc59260e8691c1e7a6f5e21a74f336df"
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/Justfile": {
+      "checksum": "4b415bf7beafe583359b097ec4e01b69"
     },
-    "result/library/roland.shiny/html/R.css": {
-      "checksum": "8b9362669af13540a86a3ac6cf22f99d"
-    },
-    "result/library/roland.shiny/INDEX": {
-      "checksum": "a8584f779302dc9d06b9a8c5be353b81"
-    },
-    "result/library/roland.shiny/Meta/features.rds": {
-      "checksum": "3d38f8a39ad747af84083a80d0d8891b"
-    },
-    "result/library/roland.shiny/Meta/hsearch.rds": {
-      "checksum": "65ffaf3b71fc05238eedd380cfd37b08"
-    },
-    "result/library/roland.shiny/Meta/links.rds": {
-      "checksum": "465c51639812eb4fe60aeb139ab19f69"
-    },
-    "result/library/roland.shiny/Meta/nsInfo.rds": {
-      "checksum": "45a16135f34d6ddabaea774fee60899d"
-    },
-    "result/library/roland.shiny/Meta/package.rds": {
-      "checksum": "c7d11ab975f670a4945a09a28f544f92"
-    },
-    "result/library/roland.shiny/Meta/Rd.rds": {
-      "checksum": "4f11504e685cfeb0a965cdce3da44417"
-    },
-    "result/library/roland.shiny/NAMESPACE": {
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/NAMESPACE": {
       "checksum": "dc21c19f0d6968ee25d441b2cf46017d"
     },
-    "result/library/roland.shiny/R/roland.shiny": {
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/R/competition.R": {
+      "checksum": "afe880b81e86b9a804983599a0e2590a"
+    },
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/R/event.R": {
+      "checksum": "9f9585622b80cbf812e85f78dad5e0d1"
+    },
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/R/pairing.R": {
+      "checksum": "9af49dd7e61a3f2b6807d873f31041a2"
+    },
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/R/routine.R": {
+      "checksum": "8b12beb00ed9db2414c8501aef48bf80"
+    },
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/R/score.R": {
+      "checksum": "4198cfca8e012b6c8c4d4c6fb768dcb6"
+    },
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/tests/testthat.R": {
+      "checksum": "a6eb54f914d006131fb8f452c04c30b9"
+    },
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/tests/testthat/test_competition.R": {
+      "checksum": "a40f8e52277ef9e86caaa6a8739c17ed"
+    },
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/tests/testthat/test_event.R": {
+      "checksum": "4120767a515f89542cba62d84e76511f"
+    },
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/tests/testthat/test_pairing.R": {
+      "checksum": "ae8b97c5ca9e243de07b183438a131c6"
+    },
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/tests/testthat/test_routine.R": {
+      "checksum": "53d51ca8bc0e2558040c81d41e4473b2"
+    },
+    "roland.shiny.Rcheck/00_pkg_src/roland.shiny/tests/testthat/test_score.R": {
+      "checksum": "0e8933c588eaaf0af77ff54d26fd51ee"
+    },
+    "roland.shiny.Rcheck/00check.log": {
+      "checksum": "af521dc441ef47ed5c59763503e2a9c5"
+    },
+    "roland.shiny.Rcheck/00install.out": {
+      "checksum": "3e72bf191227d324dd64ad68ed1ee55c"
+    },
+    "roland.shiny.Rcheck/Rdlatex.log": {
+      "checksum": "e073d0116586a1df35e55299a85b9175"
+    },
+    "roland.shiny.Rcheck/roland.shiny-manual.log": {
+      "checksum": "8c60a60e55041def0421470025744bd9"
+    },
+    "roland.shiny.Rcheck/roland.shiny-manual.pdf": {
+      "checksum": "0e6eef7c66a9c1dc3e3a8eb4fc9ec4ac"
+    },
+    "roland.shiny.Rcheck/roland.shiny/DESCRIPTION": {
+      "checksum": "03767694a5d708c3644ec560144f4dd3"
+    },
+    "roland.shiny.Rcheck/roland.shiny/help/aliases.rds": {
+      "checksum": "e6a392406508b9a91a0150a40a65186e"
+    },
+    "roland.shiny.Rcheck/roland.shiny/help/AnIndex": {
+      "checksum": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "roland.shiny.Rcheck/roland.shiny/help/paths.rds": {
+      "checksum": "6b6ec5c12c5874316aefc5c938f18fda"
+    },
+    "roland.shiny.Rcheck/roland.shiny/help/roland.shiny.rdb": {
+      "checksum": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "roland.shiny.Rcheck/roland.shiny/help/roland.shiny.rdx": {
+      "checksum": "6d918afbb49c85e687213d1c4eb7011f"
+    },
+    "roland.shiny.Rcheck/roland.shiny/html/00Index.html": {
+      "checksum": "6ccc1b7ccbf16fafc6c3a167373c5e70"
+    },
+    "roland.shiny.Rcheck/roland.shiny/html/R.css": {
+      "checksum": "8b9362669af13540a86a3ac6cf22f99d"
+    },
+    "roland.shiny.Rcheck/roland.shiny/Meta/features.rds": {
+      "checksum": "6e936bdf4dfd14911ddf370dc8063ab9"
+    },
+    "roland.shiny.Rcheck/roland.shiny/Meta/hsearch.rds": {
+      "checksum": "0afe350f631dbedeaa198d26d3909bf7"
+    },
+    "roland.shiny.Rcheck/roland.shiny/Meta/links.rds": {
+      "checksum": "c898a4c10c43ba0417e921bfbc525343"
+    },
+    "roland.shiny.Rcheck/roland.shiny/Meta/nsInfo.rds": {
+      "checksum": "7d07f4dcb92e109d7cdee308e5a67d2c"
+    },
+    "roland.shiny.Rcheck/roland.shiny/Meta/package.rds": {
+      "checksum": "c08a6938cc25526950e5d1c21add2386"
+    },
+    "roland.shiny.Rcheck/roland.shiny/Meta/Rd.rds": {
+      "checksum": "8a46ad65f6012396f9ef8a6bff1006d7"
+    },
+    "roland.shiny.Rcheck/roland.shiny/NAMESPACE": {
+      "checksum": "dc21c19f0d6968ee25d441b2cf46017d"
+    },
+    "roland.shiny.Rcheck/roland.shiny/R/roland.shiny": {
       "checksum": "d6c68f1fe41ced6e98a766a3757313da"
     },
-    "result/library/roland.shiny/R/roland.shiny.rdb": {
-      "checksum": "a6240e237efdd7e0c215aa76eb172397"
+    "roland.shiny.Rcheck/roland.shiny/R/roland.shiny.rdb": {
+      "checksum": "5d14b1e9facaf23f9f7134cd28f1a549"
     },
-    "result/library/roland.shiny/R/roland.shiny.rdx": {
-      "checksum": "0a8666b1732aad7c9e5d9c8d54989dfd"
+    "roland.shiny.Rcheck/roland.shiny/R/roland.shiny.rdx": {
+      "checksum": "027202fd34aa764eac37aba9d1caff20"
     },
-    "result/nix-support/propagated-build-inputs": {
-      "checksum": "831b41495f5ec24260ae6d65c0cd1475"
+    "roland.shiny.Rcheck/tests/startup.Rs": {
+      "checksum": "14e3c5b3d49f164cf0bc8dcd3cf2fd78"
     },
-    "result/nix-support/propagated-user-env-packages": {
-      "checksum": "831b41495f5ec24260ae6d65c0cd1475"
+    "roland.shiny.Rcheck/tests/testthat.R": {
+      "checksum": "a6eb54f914d006131fb8f452c04c30b9"
     },
-    "roland.shiny_1.0.tar.gz": {
-      "checksum": "74064c6abe289d77ecc1cbb727ae48fd"
+    "roland.shiny.Rcheck/tests/testthat.Rout": {
+      "checksum": "58c5e66c00035d33f1abb16c5e4e9690"
+    },
+    "roland.shiny.Rcheck/tests/testthat/test_competition.R": {
+      "checksum": "a40f8e52277ef9e86caaa6a8739c17ed"
+    },
+    "roland.shiny.Rcheck/tests/testthat/test_event.R": {
+      "checksum": "4120767a515f89542cba62d84e76511f"
+    },
+    "roland.shiny.Rcheck/tests/testthat/test_pairing.R": {
+      "checksum": "ae8b97c5ca9e243de07b183438a131c6"
+    },
+    "roland.shiny.Rcheck/tests/testthat/test_routine.R": {
+      "checksum": "53d51ca8bc0e2558040c81d41e4473b2"
+    },
+    "roland.shiny.Rcheck/tests/testthat/test_score.R": {
+      "checksum": "0e8933c588eaaf0af77ff54d26fd51ee"
     },
     "tests/testthat.R": {
       "checksum": "a6eb54f914d006131fb8f452c04c30b9"
