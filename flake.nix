@@ -41,12 +41,12 @@
         }
       );
       testScript = pkgs.writeShellApplication {
-          name = "r-tests";
-          runtimeInputs = [ rEnv ];
-          text = ''
-            Rscript -e "testthat::test_local()"
-          '';
-        };
+        name = "r-tests";
+        runtimeInputs = [ rEnv ];
+        text = ''
+          Rscript -e "testthat::test_local()"
+        '';
+      };
     in
     {
       packages.${system}.default = pkgs.rPackages.buildRPackage {
