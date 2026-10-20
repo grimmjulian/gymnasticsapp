@@ -39,14 +39,6 @@ score_server <- function(id, score) {
 
 pairing_ui <- function(id, show_label = FALSE) {
   ns <- shiny::NS(id)
-  if (isTRUE(show_label)) {
-    header <- c("Heim", "Gast") |>
-      lapply(shiny::tags$h4) |>
-      lapply(shiny::column, width = 6) |>
-      shiny::fluidRow()
-  } else {
-    header <- NULL
-  }
   widths <- c(5, 1, 5, 1)
   list(
     routine_ui(ns("home"), show_label = show_label),
@@ -56,7 +48,7 @@ pairing_ui <- function(id, show_label = FALSE) {
   ) |>
     Map(f = shiny::column, width = widths) |>
     shiny::fluidRow() |>
-    shiny::tagList(header, a = _)
+    shiny::tagList()
 }
 
 pairing_server <- function(id) {

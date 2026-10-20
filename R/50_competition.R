@@ -35,8 +35,16 @@ competition_header_ui <- function(id) {
   ns <- shiny::NS(id)
   shiny::tagList(shiny::tags$div(
     class = "text-center",
-    shiny::tags$h1(shiny::textOutput(ns("score"))),
-    shiny::tags$h2(shiny::textOutput(ns("event_score")))
+    style = "position: sticky; top: 0; background: white; z-index: 100; padding: 10px 0;",
+    shiny::fluidRow(
+      shiny::column(width = 4, shiny::tags$h1("Heim")),
+      shiny::column(
+        width = 4,
+        shiny::tags$h1(shiny::textOutput(ns("score"))),
+        shiny::tags$h2(shiny::textOutput(ns("event_score")))
+      ),
+      shiny::column(width = 4, shiny::tags$h1("Gast"))
+    )
   ))
 }
 
