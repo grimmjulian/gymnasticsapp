@@ -85,6 +85,19 @@ event_bench_team_server <- function(id, event) {
     shiny::observeEvent(input$add, {
       e <- shiny::isolate(e_local())
       S7::prop(e, id) <- append(S7::prop(e, id), routine())
+      selector <- paste0("#", session$ns("add"))
+      l <- length(S7::prop(e, id))
+      routine_id <- sprintf(fmt = "routine-%s", l)
+      show_label <- l == 5
+      ui <- list(
+        routine_id,
+        routine_ui(session$ns(routine_id), show_label = show_label)
+      )
+      shiny::insertUI(
+        selector = selector,
+        where = "beforeBegin",
+        ui = ui
+      )
       e_local(e)
     })
 
